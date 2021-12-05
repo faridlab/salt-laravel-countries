@@ -1,6 +1,6 @@
 <?php
 
-namespace Observers;
+namespace Faridlab\SaltLaravelCountries\Observers;
 
 class CountriesObserver extends Observer
 {

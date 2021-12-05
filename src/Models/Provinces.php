@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace Faridlab\SaltLaravelCountries\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
