@@ -11,7 +11,7 @@ class SaltLaravelCountriesCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'salt-laravel-countries:command';
+    protected $signature = 'countries:command';
 
     /**
      * The console command description.
