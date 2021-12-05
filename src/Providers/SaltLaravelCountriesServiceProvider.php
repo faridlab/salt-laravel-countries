@@ -20,7 +20,7 @@ class SaltLaravelCountriesServiceProvider extends ServiceProvider
          */
         $this->publishes([
             __DIR__.'/../../config/countries.php' => config_path('countries.php'),
-        ], 'config');
+        ], 'countries-config');
 
         /**
          * Routes
@@ -85,10 +85,10 @@ class SaltLaravelCountriesServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         $this->publishes([
             __DIR__.'/../../database/migrations/' => database_path('migrations')
-        ], 'migrations');
+        ], 'countries-migrations');
         $this->publishes([
             __DIR__.'/../../database/seeders/' => database_path('seeders')
-        ], 'seeders');
+        ], 'countries-seeders');
     }
 
     /**
