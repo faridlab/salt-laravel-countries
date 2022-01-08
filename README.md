@@ -4,7 +4,8 @@ General information about this package.
 
 ## Installation
 
-Information about the installation procedure for this package.
+To install this package, please run this command below:
+```$ composer require faridlab/salt-laravel-countries```
 
 ## Using this package
 
@@ -21,7 +22,7 @@ This will add a new ```countries.php``` file in the config directory.
 
 To publish the migration file, run the following command:
 
-```$  php artisan vendor:publish --tag=countries-migrations```
+```$ php artisan vendor:publish --tag=countries-migrations```
 
 To publish the seeder file, run the following command:
 
@@ -33,7 +34,7 @@ Next, edit the .env file with your database credentials and run the following co
 
 Run the command to seed the database with some random data:
 
-```$  php artisan db:seed --class=CountryIndonesiaSeeder```
+```$ php artisan db:seed --class=CountryIndonesiaSeeder```
 
 ## Contributing
 
