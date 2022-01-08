@@ -88,7 +88,7 @@ class SaltLaravelCountriesServiceProvider extends ServiceProvider
         ], 'countries-migrations');
         $this->publishes([
             __DIR__.'/../../database/seeders/' => database_path('seeders')
-        ], 'countries-seeders');
+        ], 'countries-seeds');
     }
 
     /**
