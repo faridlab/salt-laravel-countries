@@ -1,10 +1,10 @@
 <?php
 
-namespace Faridlab\SaltLaravelCountries\Providers;
+namespace SaltCountries\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class SaltLaravelCountriesServiceProvider extends ServiceProvider
+class SaltCountriesServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -63,7 +63,7 @@ class SaltLaravelCountriesServiceProvider extends ServiceProvider
          */
         // if ($this->app->runningInConsole()) {
         //     $this->commands([
-        //         \Faridlab\SaltLaravelCountries\Console\Commands\SaltLaravelCountriesCommand::class,
+        //         \SaltCountries\Console\Commands\SaltLaravelCountriesCommand::class,
         //     ]);
         // }
 

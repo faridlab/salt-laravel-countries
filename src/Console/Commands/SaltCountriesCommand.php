@@ -1,10 +1,10 @@
 <?php
 
-namespace Faridlab\SaltLaravelCountries\Console\Commands;
+namespace SaltCountries\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SaltLaravelCountriesCommand extends Command
+class SaltCountriesCommand extends Command
 {
     /**
      * The name and signature of the console command.

@@ -1,13 +1,15 @@
 <?php
 
-namespace Faridlab\SaltLaravelCountries\Models;
+namespace SaltCountries\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use Illuminate\Support\Facades\Schema;
-use App\Traits\ObservableModel;
+
+use SaltLaravel\Models\Resources;
+use SaltLaravel\Traits\ObservableModel;
 class Provinces extends Resources {
     use ObservableModel;
     protected $filters = [
