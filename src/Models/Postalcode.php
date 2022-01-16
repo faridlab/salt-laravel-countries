@@ -12,6 +12,7 @@ use SaltLaravel\Models\Resources;
 use SaltLaravel\Traits\ObservableModel;
 
 class Postalcode extends Resources {
+    protected $table = 'postalcode';
     use ObservableModel;
     protected $filters = [
         'default',
