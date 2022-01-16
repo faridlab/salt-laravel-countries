@@ -12,6 +12,7 @@
   "require": {
     "php": "^7.3",
     "laravel/framework": "^8.0",
+    "faridlab/laravel-grammatical-query": "^2.0",
     "faridlab/salt-laravel": "dev-main"
   },
   "require-dev": {
