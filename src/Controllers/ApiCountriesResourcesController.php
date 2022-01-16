@@ -187,7 +187,7 @@ class ApiCountriesResourcesController extends ApiResourcesController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $collection, $id = null)
+    public function show(Request $request, $id, $collection = null)
     {
         if(is_null($this->model)) {
             $this->responder->set('message', "Model not found!");
@@ -227,7 +227,7 @@ class ApiCountriesResourcesController extends ApiResourcesController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $collection, $id = null)
+    public function update(Request $request, $id, $collection = null)
     {
         if(is_null($this->model)) {
             $this->responder->set('message', "Model not found!");
@@ -293,7 +293,7 @@ class ApiCountriesResourcesController extends ApiResourcesController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function patch(Request $request, $collection, $id = null)
+    public function patch(Request $request, $id, $collection = null)
     {
         if(is_null($this->model)) {
             $this->responder->set('message', "Model not found!");
@@ -349,7 +349,7 @@ class ApiCountriesResourcesController extends ApiResourcesController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $collection, $id = null)
+    public function destroy(Request $request, $id, $collection = null)
     {
         if(is_null($this->model)) {
             $this->responder->set('message', "Model not found!");
@@ -495,7 +495,7 @@ class ApiCountriesResourcesController extends ApiResourcesController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function trashed(Request $request, $collection, $id = null)
+    public function trashed(Request $request, $id, $collection = null)
     {
         if(is_null($this->model)) {
             $this->responder->set('message', "Model not found!");
@@ -534,7 +534,7 @@ class ApiCountriesResourcesController extends ApiResourcesController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function restore(Request $request, $collection, $id = null)
+    public function restore(Request $request, $id, $collection = null)
     {
         if(is_null($this->model)) {
             $this->responder->set('message', "Model not found!");
@@ -613,7 +613,7 @@ class ApiCountriesResourcesController extends ApiResourcesController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(Request $request, $collection, $id = null)
+    public function delete(Request $request, $id, $collection = null)
     {
         if(is_null($this->model)) {
             $this->responder->set('message', "Model not found!");
