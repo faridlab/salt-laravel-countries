@@ -108,4 +108,29 @@ Route::namespace('SaltCountries\Controllers')
   // DESTROY data by ID (id), selected IDs (selected), and All data (all)
   Route::delete("districts/{id}", 'ApiCountriesResourcesController@destroy')->where('id', '[a-zA-Z0-9]+'); // soft delete a collection by ID
 
+
+  // API: SUBDISTRICTS RESOURCES
+  Route::get("subdistricts", 'ApiCountriesResourcesController@index'); // get entire collection
+  Route::post("subdistricts", 'ApiCountriesResourcesController@store'); // create new collection
+
+  Route::get("subdistricts/trash", 'ApiCountriesResourcesController@trash'); // trash of collection
+
+  Route::post("subdistricts/import", 'ApiCountriesResourcesController@import'); // import collection from external
+  Route::post("subdistricts/export", 'ApiCountriesResourcesController@export'); // export entire collection
+  Route::get("subdistricts/report", 'ApiCountriesResourcesController@report'); // report collection
+
+  Route::get("subdistricts/{id}/trashed", 'ApiCountriesResourcesController@trashed')->where('id', '[a-zA-Z0-9]+'); // get collection by ID from trash
+
+  // RESTORE data by ID (id), selected IDs (selected), and All data (all)
+  Route::post("subdistricts/{id}/restore", 'ApiCountriesResourcesController@restore')->where('id', '[a-zA-Z0-9]+'); // restore collection by ID
+
+  // DELETE data by ID (id), selected IDs (selected), and All data (all)
+  Route::delete("subdistricts/{id}/delete", 'ApiCountriesResourcesController@delete')->where('id', '[a-zA-Z0-9]+'); // hard delete collection by ID
+
+  Route::get("subdistricts/{id}", 'ApiCountriesResourcesController@show')->where('id', '[a-zA-Z0-9]+'); // get collection by ID
+  Route::put("subdistricts/{id}", 'ApiCountriesResourcesController@update')->where('id', '[a-zA-Z0-9]+'); // update collection by ID
+  Route::patch("subdistricts/{id}", 'ApiCountriesResourcesController@patch')->where('id', '[a-zA-Z0-9]+'); // patch collection by ID
+  // DESTROY data by ID (id), selected IDs (selected), and All data (all)
+  Route::delete("subdistricts/{id}", 'ApiCountriesResourcesController@destroy')->where('id', '[a-zA-Z0-9]+'); // soft delete a collection by ID
+
 });
