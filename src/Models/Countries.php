@@ -71,14 +71,14 @@ class Countries extends Resources {
     protected $searchable = array('name', 'isocode', 'phonecode');
 
     public function provinces() {
-        return $this->hasMany('App\Models\Provinces', 'country_id', 'id');
+        return $this->hasMany('SaltCountries\Models\Provinces', 'country_id', 'id');
     }
 
     public function cities() {
-        return $this->hasMany('App\Models\Cities', 'country_id', 'id');
+        return $this->hasMany('SaltCountries\Models\Cities', 'country_id', 'id');
     }
 
     public function files() {
-        return $this->hasMany('App\Models\Files', 'foreign_id', 'id')->where('foreign_table', 'countries');
+        return $this->hasMany('SaltCountries\Models\Files', 'foreign_id', 'id')->where('foreign_table', 'countries');
     }
 }
