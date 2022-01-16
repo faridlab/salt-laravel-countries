@@ -58,4 +58,29 @@ Route::namespace('SaltCountries\Controllers')
   // DESTROY data by ID (id), selected IDs (selected), and All data (all)
   Route::delete("provinces/{id}", 'ApiCountriesResourcesController@destroy')->where('id', '[a-zA-Z0-9]+'); // soft delete a collection by ID
 
+
+  // API: CITIES RESOURCES
+  Route::get("cities", 'ApiCountriesResourcesController@index'); // get entire collection
+  Route::post("cities", 'ApiCountriesResourcesController@store'); // create new collection
+
+  Route::get("cities/trash", 'ApiCountriesResourcesController@trash'); // trash of collection
+
+  Route::post("cities/import", 'ApiCountriesResourcesController@import'); // import collection from external
+  Route::post("cities/export", 'ApiCountriesResourcesController@export'); // export entire collection
+  Route::get("cities/report", 'ApiCountriesResourcesController@report'); // report collection
+
+  Route::get("cities/{id}/trashed", 'ApiCountriesResourcesController@trashed')->where('id', '[a-zA-Z0-9]+'); // get collection by ID from trash
+
+  // RESTORE data by ID (id), selected IDs (selected), and All data (all)
+  Route::post("cities/{id}/restore", 'ApiCountriesResourcesController@restore')->where('id', '[a-zA-Z0-9]+'); // restore collection by ID
+
+  // DELETE data by ID (id), selected IDs (selected), and All data (all)
+  Route::delete("cities/{id}/delete", 'ApiCountriesResourcesController@delete')->where('id', '[a-zA-Z0-9]+'); // hard delete collection by ID
+
+  Route::get("cities/{id}", 'ApiCountriesResourcesController@show')->where('id', '[a-zA-Z0-9]+'); // get collection by ID
+  Route::put("cities/{id}", 'ApiCountriesResourcesController@update')->where('id', '[a-zA-Z0-9]+'); // update collection by ID
+  Route::patch("cities/{id}", 'ApiCountriesResourcesController@patch')->where('id', '[a-zA-Z0-9]+'); // patch collection by ID
+  // DESTROY data by ID (id), selected IDs (selected), and All data (all)
+  Route::delete("cities/{id}", 'ApiCountriesResourcesController@destroy')->where('id', '[a-zA-Z0-9]+'); // soft delete a collection by ID
+
 });
