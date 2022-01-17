@@ -37,6 +37,14 @@ class ApiNestedResourcesController extends ApiResourcesNestedController
         try {
             $this->responder = $responder;
             $this->segment = $request->segment(5);
+            $this->parentId = $request->segment(4);
+
+            if($this->checkIfModelExist(Str::studly($request->segment(3)), 'SaltCountries')) {
+                $this->parentModel = $this->getModelClass(Str::studly($request->segment(3)), 'SaltCountries');
+            } else {
+                throw new Exception('Parent model not found');
+            }
+
             if($this->checkIfModelExist(Str::studly($this->segment), 'SaltCountries')) {
                 $this->model = $this->getModelClass(Str::studly($this->segment), 'SaltCountries');
             } else {
@@ -59,4 +67,5 @@ class ApiNestedResourcesController extends ApiResourcesNestedController
             return $this->responder->response();
         }
     }
+
 }
