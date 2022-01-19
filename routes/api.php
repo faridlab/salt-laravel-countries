@@ -85,6 +85,7 @@ Route::namespace('SaltCountries\Controllers')
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
     Route::delete("cities/{id}", 'ApiCountriesResourcesController@destroy')->where('id', '[a-zA-Z0-9]+'); // soft delete a collection by ID
 
+    Route::resource('cities.districts', 'ApiNestedResourcesController');
 
     // API: DISTRICTS RESOURCES
     Route::get("districts", 'ApiCountriesResourcesController@index'); // get entire collection
@@ -110,6 +111,7 @@ Route::namespace('SaltCountries\Controllers')
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
     Route::delete("districts/{id}", 'ApiCountriesResourcesController@destroy')->where('id', '[a-zA-Z0-9]+'); // soft delete a collection by ID
 
+    Route::resource('districts.subdistricts', 'ApiNestedResourcesController');
 
     // API: SUBDISTRICTS RESOURCES
     Route::get("subdistricts", 'ApiCountriesResourcesController@index'); // get entire collection
