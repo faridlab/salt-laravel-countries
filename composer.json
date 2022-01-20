@@ -1,51 +1,43 @@
 {
-  "name": "faridlab/salt-laravel-countries",
-  "description": "",
-  "keywords": ["Laravel"],
-  "authors": [
-    {
-      "name": "Farid Hidayat",
-      "email": "e.faridhidayat@gmail.com"
+    "name": "faridlab/salt-laravel-countries",
+    "description": "",
+    "keywords": ["Laravel"],
+    "authors": [{
+        "name": "Farid Hidayat",
+        "email": "e.faridhidayat@gmail.com"
+    }],
+    "homepage": "https://github.com/faridlab/salt-laravel-countries",
+    "require": {
+        "php": "^7.3",
+        "laravel/framework": "^8.0",
+        "faridlab/laravel-grammatical-query": "^2.0",
+        "faridlab/salt-laravel": "^0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^6.0",
+        "phpstan/phpstan": "^0.12"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SaltCountries\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SaltCountries\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SaltCountries\\Providers\\SaltCountriesServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit -c ./phpunit.xml --colors=always",
+        "analysis": "vendor/bin/phpstan analyse"
     }
-  ],
-  "homepage": "https://github.com/faridlab/salt-laravel-countries",
-  "require": {
-    "php": "^7.3",
-    "laravel/framework": "^8.0",
-    "faridlab/laravel-grammatical-query": "^2.0",
-    "faridlab/salt-laravel": "dev-main"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.0",
-    "orchestra/testbench": "^6.0",
-    "phpstan/phpstan": "^0.12"
-  },
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "SaltCountries\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "SaltCountries\\Tests\\": "tests/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "SaltCountries\\Providers\\SaltCountriesServiceProvider"
-      ]
-    }
-  },
-  "scripts": {
-    "test": "vendor/bin/phpunit -c ./phpunit.xml --colors=always",
-    "analysis": "vendor/bin/phpstan analyse"
-  },
-  "repositories": [
-      {
-          "type": "path",
-          "url": "~/Unicorns/startapp/frameworks/salt-laravel-core"
-      }
-  ]
 }
