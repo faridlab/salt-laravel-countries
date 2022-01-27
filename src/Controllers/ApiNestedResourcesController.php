@@ -27,45 +27,5 @@ use SaltLaravel\Services\ResponseService;
 
 class ApiNestedResourcesController extends ApiResourcesNestedController
 {
-
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct(Request $request, Resources $model, ResponseService $responder) {
-        try {
-            $this->responder = $responder;
-            $this->segment = $request->segment(5);
-            $this->parentId = $request->segment(4);
-
-            if($this->checkIfModelExist(Str::studly($request->segment(3)), 'SaltCountries')) {
-                $this->parentModel = $this->getModelClass(Str::studly($request->segment(3)), 'SaltCountries');
-            } else {
-                throw new Exception('Parent model not found');
-            }
-
-            if($this->checkIfModelExist(Str::studly($this->segment), 'SaltCountries')) {
-                $this->model = $this->getModelClass(Str::studly($this->segment), 'SaltCountries');
-            } else {
-                if($model->checkTableExists($this->segment)) {
-                    $this->model = $model;
-                    $this->model->setTable($this->segment);
-                }
-            }
-            if($this->model) {
-                $this->responder->set('collection', $this->model->getTable());
-                // SET default Authentication
-                $this->middleware('auth:api', ['only' => $this->model->getAuthenticatedRoutes()]);
-            }
-
-            if(is_null($this->table_name)) $this->table_name = $this->segment;
-            $this->segments = $request->segments();
-        } catch (\Exception $e) {
-            $this->responder->set('message', $e->getMessage());
-            $this->responder->setStatus(500, 'Internal server error.');
-            return $this->responder->response();
-        }
-    }
-
+    protected $modelNamespace = 'SaltCountries';
 }
