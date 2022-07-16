@@ -12,6 +12,7 @@ To install this package, please run this command below:
 Information about using this package
 
 ### Publishing Configurations
+
 To publish the config file of our package, run the following command:
 
 ```$ php artisan vendor:publish --tag=countries-config```
