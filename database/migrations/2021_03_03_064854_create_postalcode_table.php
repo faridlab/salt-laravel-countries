@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostalcodeTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreatePostalcodeTable extends Migration
     public function up()
     {
         Schema::create('postalcode', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('subdistrict_id')->constrained('subdistricts');
-            $table->foreignId('district_id')->constrained('districts');
-            $table->foreignId('city_id')->constrained('cities');
-            $table->foreignId('province_id')->constrained('provinces');
-            $table->foreignId('country_id')->constrained('countries');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('subdistrict_id')->references('id')->on('subdistricts');
+            $table->foreignUuid('district_id')->references('id')->on('districts');
+            $table->foreignUuid('city_id')->references('id')->on('cities');
+            $table->foreignUuid('province_id')->references('id')->on('provinces');
+            $table->foreignUuid('country_id')->references('id')->on('countries');
             $table->string('postal_code', 255);
             $table->timestamps();
             $table->softDeletes();
@@ -35,4 +35,4 @@ class CreatePostalcodeTable extends Migration
     {
         Schema::dropIfExists('postalcode');
     }
-}
+};

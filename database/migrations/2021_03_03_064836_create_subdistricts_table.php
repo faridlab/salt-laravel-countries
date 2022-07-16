@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubdistrictsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CreateSubdistrictsTable extends Migration
     public function up()
     {
         Schema::create('subdistricts', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('name', 255);
-            $table->foreignId('district_id')->constrained('districts');
+            $table->foreignUuid('district_id')->references('id')->on('districts');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,4 +31,4 @@ class CreateSubdistrictsTable extends Migration
     {
         Schema::dropIfExists('subdistricts');
     }
-}
+};

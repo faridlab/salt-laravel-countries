@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProvincesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CreateProvincesTable extends Migration
     public function up()
     {
         Schema::create('provinces', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->uuid('id')->primary();
             $table->string('name', 255);
-            $table->foreignId('country_id')->constrained('countries');
+            $table->foreignUuid('country_id')->references('id')->on('countries');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,4 +31,4 @@ class CreateProvincesTable extends Migration
     {
         Schema::dropIfExists('provinces');
     }
-}
+};

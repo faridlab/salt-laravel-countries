@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCitiesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class CreateCitiesTable extends Migration
     public function up()
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->uuid('id')->primary();
             $table->string('name', 255);
-            $table->foreignId('country_id')->constrained('countries');
-            $table->foreignId('province_id')->constrained('provinces');
+            $table->foreignUuid('country_id')->references('id')->on('countries');
+            $table->foreignUuid('province_id')->references('id')->on('provinces');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,4 +32,4 @@ class CreateCitiesTable extends Migration
     {
         Schema::dropIfExists('cities');
     }
-}
+};
