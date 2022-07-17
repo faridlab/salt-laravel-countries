@@ -10,10 +10,14 @@ use Illuminate\Support\Facades\Schema;
 
 use SaltLaravel\Models\Resources;
 use SaltLaravel\Traits\ObservableModel;
+use SaltLaravel\Traits\Uuids;
 
 class Postalcode extends Resources {
-    protected $table = 'postalcode';
+
+    use Uuids;
     use ObservableModel;
+
+    protected $table = 'postalcode';
     protected $filters = [
         'default',
         'search',
