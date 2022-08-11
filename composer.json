@@ -4,7 +4,7 @@
     "keywords": ["Laravel"],
     "authors": [{
         "name": "Farid Hidayat",
-        "email": "e.faridhidayat@gmail.com"
+        "email": "farid@startapp.id"
     }],
     "homepage": "https://github.com/faridlab/salt-laravel-countries",
     "require": {
