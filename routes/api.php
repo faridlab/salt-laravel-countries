@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 $version = config('app.API_VERSION', 'v1');
 
 Route::namespace('SaltCountries\Controllers')
-    ->middleware(['api'])
+    ->middleware(['auth:api'])
     ->prefix("api/{$version}")
     ->group(function () {
 
