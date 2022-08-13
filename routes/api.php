@@ -7,7 +7,7 @@ use SaltCountries\Controllers\ApiNestedResourcesController;
 
 $version = config('app.API_VERSION', 'v1');
 
-Route::middleware(['auth:api'])
+Route::middleware(['api'])
     ->prefix("api/{$version}")
     ->group(function () {
 
