@@ -11,9 +11,12 @@ use Illuminate\Support\Facades\Schema;
 use SaltLaravel\Models\Resources;
 use SaltLaravel\Observers\Traits\Fileable;
 use SaltLaravel\Traits\ObservableModel;
+use SaltLaravel\Traits\Uuids;
+
 class Countries extends Resources {
 
     use ObservableModel;
+    use Uuids;
     use Fileable;
 
     protected $fileableFields = ['flag'];
