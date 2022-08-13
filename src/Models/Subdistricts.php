@@ -13,8 +13,9 @@ use SaltLaravel\Traits\ObservableModel;
 use SaltLaravel\Traits\Uuids;
 
 class Subdistricts extends Resources {
-    use ObservableModel;
+
     use Uuids;
+    use ObservableModel;
 
     protected $filters = [
         'default',

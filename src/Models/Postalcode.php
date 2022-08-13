@@ -13,8 +13,9 @@ use SaltLaravel\Traits\ObservableModel;
 use SaltLaravel\Traits\Uuids;
 
 class Postalcode extends Resources {
-    use ObservableModel;
+
     use Uuids;
+    use ObservableModel;
 
     protected $table = 'postalcode';
     protected $filters = [
