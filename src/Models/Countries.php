@@ -17,7 +17,6 @@ class Countries extends Resources {
 
     use Uuids;
     use ObservableModel;
-    use Uuids;
     use Fileable;
 
     protected $fileableFields = ['flag'];
