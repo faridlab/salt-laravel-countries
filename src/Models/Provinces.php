@@ -33,7 +33,7 @@ class Provinces extends Resources {
     ];
 
     protected $rules = array(
-        'country_id' => 'required|integer',
+        'country_id' => 'required|string',
         'name' => 'required|string'
     );
 
