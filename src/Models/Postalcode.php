@@ -39,12 +39,12 @@ class Postalcode extends Resources {
 
     protected $rules = array(
         "postal_code" => 'required|string',
-        'district_id' => 'required|integer',
-        'subdistrict_id' => 'required|integer',
-        'district_id' => 'required|integer',
-        'city_id' => 'required|integer',
-        'province_id' => 'required|integer',
-        'country_id' => 'required|integer',
+        'district_id' => 'required|string',
+        'subdistrict_id' => 'required|string',
+        'district_id' => 'required|string',
+        'city_id' => 'required|string',
+        'province_id' => 'required|string',
+        'country_id' => 'required|string',
     );
 
     protected $auths = array (
