@@ -34,7 +34,7 @@ class Subdistricts extends Resources {
 
     protected $rules = array(
         "name" => 'required|string',
-        "district_id" => 'required|integer',
+        "district_id" => 'required|string',
     );
 
     protected $auths = array (
