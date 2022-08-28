@@ -35,8 +35,8 @@ class Cities extends Resources {
 
     protected $rules = array(
         "name" => 'required|string',
-        "country_id" => 'required|integer',
-        "province_id" => 'required|integer',
+        "country_id" => 'required|string',
+        "province_id" => 'required|string',
     );
 
     protected $auths = array (
