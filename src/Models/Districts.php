@@ -34,7 +34,7 @@ class Districts extends Resources {
 
     protected $rules = array(
         "name" => 'required|string',
-        "city_id" => 'required|integer',
+        "city_id" => 'required|string',
     );
 
     protected $auths = array (
