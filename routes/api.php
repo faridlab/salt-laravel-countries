@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use SaltCountries\Controllers\ApiCountriesResourcesController;
 use SaltCountries\Controllers\ApiNestedResourcesController;
 
+use SaltCountries\Controllers\CountriesResourcesController;
+
 $version = config('app.API_VERSION', 'v1');
 
 Route::middleware(['api'])
@@ -12,28 +14,28 @@ Route::middleware(['api'])
     ->group(function () {
 
     // API: COUNTRIES RESOURCES
-    Route::get("countries", [ApiCountriesResourcesController::class, 'index']); // get entire collection
-    Route::post("countries", [ApiCountriesResourcesController::class, 'store']); // create new collection
+    Route::get("countries", [CountriesResourcesController::class, 'index']); // get entire collection
+    Route::post("countries", [CountriesResourcesController::class, 'store']); // create new collection
 
-    Route::get("countries/trash", [ApiCountriesResourcesController::class, 'trash']); // trash of collection
+    Route::get("countries/trash", [CountriesResourcesController::class, 'trash']); // trash of collection
 
-    Route::post("countries/import", [ApiCountriesResourcesController::class, 'import']); // import collection from external
-    Route::post("countries/export", [ApiCountriesResourcesController::class, 'export']); // export entire collection
-    Route::get("countries/report", [ApiCountriesResourcesController::class, 'report']); // report collection
+    Route::post("countries/import", [CountriesResourcesController::class, 'import']); // import collection from external
+    Route::post("countries/export", [CountriesResourcesController::class, 'export']); // export entire collection
+    Route::get("countries/report", [CountriesResourcesController::class, 'report']); // report collection
 
-    Route::get("countries/{id}/trashed", [ApiCountriesResourcesController::class, 'trashed'])->where('id', '[a-zA-Z0-9-]+'); // get collection by ID from trash
+    Route::get("countries/{id}/trashed", [CountriesResourcesController::class, 'trashed'])->where('id', '[a-zA-Z0-9-]+'); // get collection by ID from trash
 
     // RESTORE data by ID (id), selected IDs (selected), and All data (all)
-    Route::post("countries/{id}/restore", [ApiCountriesResourcesController::class, 'restore'])->where('id', '[a-zA-Z0-9-]+'); // restore collection by ID
+    Route::post("countries/{id}/restore", [CountriesResourcesController::class, 'restore'])->where('id', '[a-zA-Z0-9-]+'); // restore collection by ID
 
     // DELETE data by ID (id), selected IDs (selected), and All data (all)
-    Route::delete("countries/{id}/delete", [ApiCountriesResourcesController::class, 'delete'])->where('id', '[a-zA-Z0-9-]+'); // hard delete collection by ID
+    Route::delete("countries/{id}/delete", [CountriesResourcesController::class, 'delete'])->where('id', '[a-zA-Z0-9-]+'); // hard delete collection by ID
 
-    Route::get("countries/{id}", [ApiCountriesResourcesController::class, 'show'])->where('id', '[a-zA-Z0-9-]+'); // get collection by ID
-    Route::put("countries/{id}", [ApiCountriesResourcesController::class, 'update'])->where('id', '[a-zA-Z0-9-]+'); // update collection by ID
-    Route::patch("countries/{id}", [ApiCountriesResourcesController::class, 'patch'])->where('id', '[a-zA-Z0-9-]+'); // patch collection by ID
+    Route::get("countries/{id}", [CountriesResourcesController::class, 'show'])->where('id', '[a-zA-Z0-9-]+'); // get collection by ID
+    Route::put("countries/{id}", [CountriesResourcesController::class, 'update'])->where('id', '[a-zA-Z0-9-]+'); // update collection by ID
+    Route::patch("countries/{id}", [CountriesResourcesController::class, 'patch'])->where('id', '[a-zA-Z0-9-]+'); // patch collection by ID
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
-    Route::delete("countries/{id}", [ApiCountriesResourcesController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+'); // soft delete a collection by ID
+    Route::delete("countries/{id}", [CountriesResourcesController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+'); // soft delete a collection by ID
 
     Route::resource('countries.provinces', ApiNestedResourcesController::class);
 
