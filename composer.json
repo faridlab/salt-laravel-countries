@@ -12,7 +12,7 @@
         "laravel/framework": "^9.11",
         "doctrine/dbal": "^3.3",
         "faridlab/laravel-search-query": "^9.0",
-        "faridlab/salt-laravel": "dev-main",
+        "faridlab/salt-laravel": "^9.0.25",
         "zircote/swagger-php": "^4.4"
     },
     "require-dev": {
