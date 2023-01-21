@@ -2,13 +2,15 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use SaltCountries\Controllers\ApiNestedResourcesController;
-
 use SaltCountries\Controllers\CountriesResourcesController;
 use SaltCountries\Controllers\ProvincesResourcesController;
+use SaltCountries\Controllers\NestedProvincesResourcesController;
 use SaltCountries\Controllers\CitiesResourcesController;
+use SaltCountries\Controllers\NestedCitiesResourcesController;
 use SaltCountries\Controllers\DistrictsResourcesController;
+use SaltCountries\Controllers\NestedDistrictsResourcesController;
 use SaltCountries\Controllers\SubdistrictsResourcesController;
+use SaltCountries\Controllers\NestedSubdistrictsResourcesController;
 use SaltCountries\Controllers\PostalcodeResourcesController;
 
 $version = config('app.API_VERSION', 'v1');
@@ -41,7 +43,7 @@ Route::middleware(['api'])
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
     Route::delete("countries/{id}", [CountriesResourcesController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // soft delete a collection by ID
 
-    Route::resource('countries.provinces', ApiNestedResourcesController::class)->middleware(['auth:api']);
+    Route::resource('countries.provinces', NestedProvincesResourcesController::class);
 
     // API: PROVINCES RESOURCES
     Route::get("provinces", [ProvincesResourcesController::class, 'index']); // get entire collection
@@ -67,7 +69,7 @@ Route::middleware(['api'])
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
     Route::delete("provinces/{id}", [ProvincesResourcesController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // soft delete a collection by ID
 
-    Route::resource('provinces.cities', ApiNestedResourcesController::class)->middleware(['auth:api']);
+    Route::resource('provinces.cities', NestedCitiesResourcesController::class);
 
     // API: CITIES RESOURCES
     Route::get("cities", [CitiesResourcesController::class, 'index']); // get entire collection
@@ -93,7 +95,7 @@ Route::middleware(['api'])
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
     Route::delete("cities/{id}", [CitiesResourcesController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // soft delete a collection by ID
 
-    Route::resource('cities.districts', ApiNestedResourcesController::class)->middleware(['auth:api']);
+    Route::resource('cities.districts', NestedDistrictsResourcesController::class);
 
     // API: DISTRICTS RESOURCES
     Route::get("districts", [DistrictsResourcesController::class, 'index']); // get entire collection
@@ -119,7 +121,7 @@ Route::middleware(['api'])
     // DESTROY data by ID (id), selected IDs (selected), and All data (all)
     Route::delete("districts/{id}", [DistrictsResourcesController::class, 'destroy'])->where('id', '[a-zA-Z0-9-]+')->middleware(['auth:api']); // soft delete a collection by ID
 
-    Route::resource('districts.subdistricts', ApiNestedResourcesController::class)->middleware(['auth:api']);
+    Route::resource('districts.subdistricts', NestedSubdistrictsResourcesController::class);
 
     // API: SUBDISTRICTS RESOURCES
     Route::get("subdistricts", [SubdistrictsResourcesController::class, 'index']); // get entire collection
