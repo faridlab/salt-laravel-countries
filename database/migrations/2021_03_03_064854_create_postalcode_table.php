@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('postalcode', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('subdistrict_id')->references('id')->on('subdistricts');
-            $table->foreignUuid('district_id')->references('id')->on('districts');
-            $table->foreignUuid('city_id')->references('id')->on('cities');
+            $table->foreignUuid('subdistrict_id')->nullable()->references('id')->on('subdistricts');
+            $table->foreignUuid('district_id')->nullable()->references('id')->on('districts');
+            $table->foreignUuid('city_id')->nullable()->references('id')->on('cities');
             $table->foreignUuid('province_id')->references('id')->on('provinces');
             $table->foreignUuid('country_id')->references('id')->on('countries');
             $table->string('postal_code', 255);
