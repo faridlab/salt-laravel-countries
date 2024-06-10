@@ -9,10 +9,10 @@
     "homepage": "https://github.com/faridlab/salt-laravel-countries",
     "require": {
         "php": "^8.0.2",
-        "laravel/framework": "^9.11",
+        "laravel/framework": "^10.0",
         "doctrine/dbal": "^3.3",
         "faridlab/laravel-search-query": "^9.0",
-        "faridlab/salt-laravel": "^9.0.25",
+        "faridlab/salt-laravel": "^10.0.0",
         "zircote/swagger-php": "^4.4"
     },
     "require-dev": {
