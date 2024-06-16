@@ -1,0 +1,3215 @@
+{
+	"info": {
+		"_postman_id": "0a1b54f4-4e87-45b5-902c-3b10d2420cc5",
+		"name": "Country Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25375"
+	},
+	"item": [
+		{
+			"name": "Countries",
+			"item": [
+				{
+					"name": "Provinces",
+					"item": [
+						{
+							"name": "Collections",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}/{{provinces}}",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{countries}}",
+										"{{id}}",
+										"{{provinces}}"
+									],
+									"query": [
+										{
+											"key": "relationship[]",
+											"value": "provinces",
+											"description": "Show data relationship",
+											"disabled": true
+										},
+										{
+											"key": "relationship[]",
+											"value": "cities",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Collections Trash",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}/{{provinces}}/trash",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{countries}}",
+										"{{id}}",
+										"{{provinces}}",
+										"trash"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Indonesia",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "25",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}"
+							],
+							"query": [
+								{
+									"key": "relationship[]",
+									"value": "provinces",
+									"description": "Show data relationship",
+									"disabled": true
+								},
+								{
+									"key": "relationship[]",
+									"value": "cities",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Malaysia",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "banner",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/export",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Malaysian",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "61",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Malaya\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Collection (Softdelete)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"{{id}}"
+							]
+						},
+						"description": "- Destroy Model by ID\t\t\t\t\t/collection/{id}\n- Destroy Collection by selected Ids\t/collection/selected --params selected=[1,2,3]\n- Destroy all Models in Collection\t\t/collection/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}/delete",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"{{id}}",
+								"delete"
+							]
+						},
+						"description": "- Delete Model by ID\t\t\t\t\t/collection/{id}/delete\n- Delete Collection by selected Ids\t/collection/selected/delete --params ids=[1,2,3]\n- Delete all Models in Collection\t\t/collection/all/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Collections Trash",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/trash",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"trash"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Indonesia",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Collection by ID Trashed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}/trashed",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"{{id}}",
+								"trashed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Deleted Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{countries}}/{{id}}/restore",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{countries}}",
+								"{{id}}",
+								"restore"
+							]
+						},
+						"description": "- Restore Model by ID\t\t\t\t\t/collection/{id}/restore\n- Restore Collection by selected Ids\t/collection/selected/restore --params selected=[1,2,3]\n- Restore all Models in Collection\t\t/collection/all/restore"
+					},
+					"response": []
+				}
+			],
+			"description": "# Fields\n\n- isocode: string\n    \n- name: string\n    \n- phonecode: integer\n    \n\n# Relationships\n\n- provinces\n    \n- cities"
+		},
+		{
+			"name": "Provinces",
+			"item": [
+				{
+					"name": "Cities",
+					"item": [
+						{
+							"name": "Collections",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}/{{cities}}",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{provinces}}",
+										"{{id}}",
+										"{{cities}}"
+									],
+									"query": [
+										{
+											"key": "relationship[]",
+											"value": "provinces",
+											"description": "Show data relationship",
+											"disabled": true
+										},
+										{
+											"key": "relationship[]",
+											"value": "cities",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Collections Trash",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}/{{cities}}/trash",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{provinces}}",
+										"{{id}}",
+										"{{cities}}",
+										"trash"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Indonesia",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "25",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Collections",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}?relationship[]=country&search=jakarta",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}"
+							],
+							"query": [
+								{
+									"key": "relationship[]",
+									"value": "country"
+								},
+								{
+									"key": "search",
+									"value": "jakarta"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"SUMATERA UTARA [DUPLICATE]\",\n    \"country_id\": \"7ce4541d-04af-11ed-8fe4-0242ac1e0003\"\n}"
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{collection}}/export",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{collection}}",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"NKRI\",\n\t\"isocode\": \"ID\",\n\t\"phonecode\": 62\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Indonesia\",\n\t\"isocode\": \"ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Collection (Softdelete)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"{{id}}"
+							]
+						},
+						"description": "- Destroy Model by ID\t\t\t\t\t/collection/{id}\n- Destroy Collection by selected Ids\t/collection/selected --params selected=[1,2,3]\n- Destroy all Models in Collection\t\t/collection/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}/delete",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"{{id}}",
+								"delete"
+							]
+						},
+						"description": "- Delete Model by ID\t\t\t\t\t/collection/{id}/delete\n- Delete Collection by selected Ids\t/collection/selected/delete --params ids=[1,2,3]\n- Delete all Models in Collection\t\t/collection/all/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Collections Trash",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/trash",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"trash"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Indonesia",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Collection by ID Trashed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/{{id}}/trashed",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"{{id}}",
+								"trashed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Deleted Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{provinces}}/all/restore",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{provinces}}",
+								"all",
+								"restore"
+							]
+						},
+						"description": "- Restore Model by ID\t\t\t\t\t/collection/{id}/restore\n- Restore Collection by selected Ids\t/collection/selected/restore --params selected=[1,2,3]\n- Restore all Models in Collection\t\t/collection/all/restore"
+					},
+					"response": []
+				}
+			],
+			"description": "# Fields\n\n- name: string\n    \n- country_id: integer\n    \n\n# Relationships\n\n- country\n    \n- cities"
+		},
+		{
+			"name": "Cities",
+			"item": [
+				{
+					"name": "Districts",
+					"item": [
+						{
+							"name": "Collections",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{cities}}/{{id}}/{{districts}}",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{cities}}",
+										"{{id}}",
+										"{{districts}}"
+									],
+									"query": [
+										{
+											"key": "relationship[]",
+											"value": "provinces",
+											"description": "Show data relationship",
+											"disabled": true
+										},
+										{
+											"key": "relationship[]",
+											"value": "cities",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Collections Trash",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{cities}}/{{id}}/{{districts}}/trash",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{cities}}",
+										"{{id}}",
+										"{{districts}}",
+										"trash"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Indonesia",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "25",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}?province_id=100d8485-04b6-11ed-8fe4-0242ac1e0003",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}"
+							],
+							"query": [
+								{
+									"key": "fields[]",
+									"value": "name",
+									"disabled": true
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "relationship[]",
+									"value": "country",
+									"description": "Show data relationship",
+									"disabled": true
+								},
+								{
+									"key": "relationship[]",
+									"value": "province",
+									"disabled": true
+								},
+								{
+									"key": "relationship[]",
+									"value": "thumbnail",
+									"disabled": true
+								},
+								{
+									"key": "province_id",
+									"value": "100d8485-04b6-11ed-8fe4-0242ac1e0003"
+								},
+								{
+									"key": "search",
+									"value": "jakarta",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Malaysia",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": "/Users/utmostphere/Downloads/android.png"
+								},
+								{
+									"key": "banner",
+									"type": "file",
+									"src": "/Users/utmostphere/Downloads/Untitled design.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/export",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"NKRI\",\n\t\"isocode\": \"ID\",\n\t\"phonecode\": 62\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Indonesia\",\n\t\"isocode\": \"ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Collection (Softdelete)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/all",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"all"
+							]
+						},
+						"description": "- Destroy Model by ID\t\t\t\t\t/collection/{id}\n- Destroy Collection by selected Ids\t/collection/selected --params selected=[1,2,3]\n- Destroy all Models in Collection\t\t/collection/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/all/delete",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"all",
+								"delete"
+							]
+						},
+						"description": "- Delete Model by ID\t\t\t\t\t/collection/{id}/delete\n- Delete Collection by selected Ids\t/collection/selected/delete --params ids=[1,2,3]\n- Delete all Models in Collection\t\t/collection/all/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Collections Trash",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/trash",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"trash"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Indonesia",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Collection by ID Trashed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/{{id}}/trashed",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"{{id}}",
+								"trashed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Deleted Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{cities}}/all/restore",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{cities}}",
+								"all",
+								"restore"
+							]
+						},
+						"description": "- Restore Model by ID\t\t\t\t\t/collection/{id}/restore\n- Restore Collection by selected Ids\t/collection/selected/restore --params selected=[1,2,3]\n- Restore all Models in Collection\t\t/collection/all/restore"
+					},
+					"response": []
+				}
+			],
+			"description": "# Fields\n\n- name: string\n    \n- country_id: integer\n    \n- province_id: integer\n    \n\n# Relationships\n\n- country\n    \n- province\n    \n- thumbnail"
+		},
+		{
+			"name": "Districts",
+			"item": [
+				{
+					"name": "Subdistricts",
+					"item": [
+						{
+							"name": "Collections",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}/{{subdistricts}}",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{districts}}",
+										"{{id}}",
+										"{{subdistricts}}"
+									],
+									"query": [
+										{
+											"key": "relationship[]",
+											"value": "provinces",
+											"description": "Show data relationship",
+											"disabled": true
+										},
+										{
+											"key": "relationship[]",
+											"value": "cities",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Collections Trash",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer.token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}/{{subdistricts}}/trash",
+									"host": [
+										"{{endpoint}}"
+									],
+									"path": [
+										"{{version}}",
+										"{{districts}}",
+										"{{id}}",
+										"{{subdistricts}}",
+										"trash"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Indonesia",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "25",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}"
+							],
+							"query": [
+								{
+									"key": "relationship[]",
+									"value": "provinces",
+									"description": "Show data relationship",
+									"disabled": true
+								},
+								{
+									"key": "relationship[]",
+									"value": "cities",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Malaysia",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "banner",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/export",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Malaysian",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "61",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": "/Users/utmostphere/Downloads/c3f360257e8428ef51617f8fc91cb4c7.jpeg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Indonesia\",\n\t\"isocode\": \"ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Collection (Softdelete)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"{{id}}"
+							]
+						},
+						"description": "- Destroy Model by ID\t\t\t\t\t/collection/{id}\n- Destroy Collection by selected Ids\t/collection/selected --params selected=[1,2,3]\n- Destroy all Models in Collection\t\t/collection/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/all/delete",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"all",
+								"delete"
+							]
+						},
+						"description": "- Delete Model by ID\t\t\t\t\t/collection/{id}/delete\n- Delete Collection by selected Ids\t/collection/selected/delete --params ids=[1,2,3]\n- Delete all Models in Collection\t\t/collection/all/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Collections Trash",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/trash",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"trash"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Indonesia",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Collection by ID Trashed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}/trashed",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"{{id}}",
+								"trashed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Deleted Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{districts}}/{{id}}/restore",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{districts}}",
+								"{{id}}",
+								"restore"
+							]
+						},
+						"description": "- Restore Model by ID\t\t\t\t\t/collection/{id}/restore\n- Restore Collection by selected Ids\t/collection/selected/restore --params selected=[1,2,3]\n- Restore all Models in Collection\t\t/collection/all/restore"
+					},
+					"response": []
+				}
+			],
+			"description": "# Fields\n\n- isocode: string\n    \n- name: string\n    \n- phonecode: integer\n    \n\n# Relationships\n\n- provinces\n    \n- cities"
+		},
+		{
+			"name": "Sub Districts",
+			"item": [
+				{
+					"name": "collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}"
+							],
+							"query": [
+								{
+									"key": "relationship[]",
+									"value": "provinces",
+									"description": "Show data relationship",
+									"disabled": true
+								},
+								{
+									"key": "relationship[]",
+									"value": "cities",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Malaysia",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "banner",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/export",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/7ce4541d-04af-11ed-8fe4-0242ac1e0003",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"7ce4541d-04af-11ed-8fe4-0242ac1e0003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Malaysian",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "61",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": "/Users/utmostphere/Downloads/c3f360257e8428ef51617f8fc91cb4c7.jpeg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Indonesia\",\n\t\"isocode\": \"ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/10",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Collection (Softdelete)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"2"
+							]
+						},
+						"description": "- Destroy Model by ID\t\t\t\t\t/collection/{id}\n- Destroy Collection by selected Ids\t/collection/selected --params selected=[1,2,3]\n- Destroy all Models in Collection\t\t/collection/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/all/delete",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"all",
+								"delete"
+							]
+						},
+						"description": "- Delete Model by ID\t\t\t\t\t/collection/{id}/delete\n- Delete Collection by selected Ids\t/collection/selected/delete --params ids=[1,2,3]\n- Delete all Models in Collection\t\t/collection/all/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Collections Trash",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/trash",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"trash"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Indonesia",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Collection by ID Trashed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/1/trashed",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"1",
+								"trashed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Deleted Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{subdistricts}}/2/restore",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{subdistricts}}",
+								"2",
+								"restore"
+							]
+						},
+						"description": "- Restore Model by ID\t\t\t\t\t/collection/{id}/restore\n- Restore Collection by selected Ids\t/collection/selected/restore --params selected=[1,2,3]\n- Restore all Models in Collection\t\t/collection/all/restore"
+					},
+					"response": []
+				}
+			],
+			"description": "# Fields\n\n- isocode: string\n    \n- name: string\n    \n- phonecode: integer\n    \n\n# Relationships\n\n- provinces\n    \n- cities"
+		},
+		{
+			"name": "Postalcode",
+			"item": [
+				{
+					"name": "collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}"
+							],
+							"query": [
+								{
+									"key": "relationship[]",
+									"value": "provinces",
+									"description": "Show data relationship",
+									"disabled": true
+								},
+								{
+									"key": "relationship[]",
+									"value": "cities",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Malaysia",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "banner",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/export",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/7ce4541d-04af-11ed-8fe4-0242ac1e0003",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"7ce4541d-04af-11ed-8fe4-0242ac1e0003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Malaysian",
+									"type": "text"
+								},
+								{
+									"key": "isocode",
+									"value": "MY",
+									"type": "text"
+								},
+								{
+									"key": "phonecode",
+									"value": "61",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"type": "file",
+									"src": "/Users/utmostphere/Downloads/c3f360257e8428ef51617f8fc91cb4c7.jpeg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Collection by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Indonesia\",\n\t\"isocode\": \"ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/10",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Collection (Softdelete)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"2"
+							]
+						},
+						"description": "- Destroy Model by ID\t\t\t\t\t/collection/{id}\n- Destroy Collection by selected Ids\t/collection/selected --params selected=[1,2,3]\n- Destroy all Models in Collection\t\t/collection/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/all/delete",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"all",
+								"delete"
+							]
+						},
+						"description": "- Delete Model by ID\t\t\t\t\t/collection/{id}/delete\n- Delete Collection by selected Ids\t/collection/selected/delete --params ids=[1,2,3]\n- Delete all Models in Collection\t\t/collection/all/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Collections Trash",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/trash",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"trash"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Indonesia",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Collection by ID Trashed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/1/trashed",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"1",
+								"trashed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Deleted Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/{{version}}/{{postalcode}}/2/restore",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{version}}",
+								"{{postalcode}}",
+								"2",
+								"restore"
+							]
+						},
+						"description": "- Restore Model by ID\t\t\t\t\t/collection/{id}/restore\n- Restore Collection by selected Ids\t/collection/selected/restore --params selected=[1,2,3]\n- Restore all Models in Collection\t\t/collection/all/restore"
+					},
+					"response": []
+				}
+			],
+			"description": "# Fields\n\n- isocode: string\n    \n- name: string\n    \n- phonecode: integer\n    \n\n# Relationships\n\n- provinces\n    \n- cities"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "http://localhost:8000/api",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "version",
+			"value": "v1",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "bearer.token",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "collection",
+			"value": "countries",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "7ce4541d-04af-11ed-8fe4-0242ac1e0003",
+			"type": "string"
+		},
+		{
+			"key": "countries",
+			"value": "countries",
+			"type": "string"
+		},
+		{
+			"key": "provinces",
+			"value": "provinces",
+			"type": "string"
+		},
+		{
+			"key": "cities",
+			"value": "cities",
+			"type": "string"
+		},
+		{
+			"key": "districts",
+			"value": "districts",
+			"type": "string"
+		},
+		{
+			"key": "subdistricts",
+			"value": "subdistricts",
+			"type": "string"
+		},
+		{
+			"key": "postalcode",
+			"value": "postalcode",
+			"type": "string"
+		}
+	]
+}
