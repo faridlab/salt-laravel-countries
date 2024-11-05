@@ -4,6 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Hash;
+
+use SaltCountries\Models\Countries;
+use SaltCountries\Models\Provinces;
+use SaltCountries\Models\Cities;
+use SaltCountries\Models\Districts;
+use SaltCountries\Models\Subdistricts;
 
 class CountryIndonesiaSeeder extends Seeder
 {
@@ -14,28 +23,59 @@ class CountryIndonesiaSeeder extends Seeder
      */
     public function run()
     {
-        $countries = base_path('database/seeders/countries.sql');
-        $sql = file_get_contents($countries);
-        DB::unprepared($sql);
+        $kodepos_path = base_path('database/seeders/kodepos.json');
+        $kodepos_json = file_get_contents($kodepos_path);
+        $postalcode = json_decode($kodepos_json, true);
 
-        $provinces = base_path('database/seeders/provinces.sql');
-        $sql = file_get_contents($provinces);
-        DB::unprepared($sql);
+        $country = Countries::create([
+          'name' => 'Indonesia',
+          'isocode' => 'ID',
+          'phonecode'  => '+62',
+        ]);
 
-        $cities = base_path('database/seeders/cities.sql');
-        $sql = file_get_contents($cities);
-        DB::unprepared($sql);
+        $collection = collect($postalcode);
+        $data = $collection->groupBy('province');
 
-        $districts = base_path('database/seeders/districts.sql');
-        $sql = file_get_contents($districts);
-        DB::unprepared($sql);
+        foreach ($data as $pidx => $value) {
+          $province = Provinces::create([
+            'name' => $pidx,
+            'country_id' => $country->id
+          ]);
 
-        $subdistricts = base_path('database/seeders/subdistricts.sql');
-        $sql = file_get_contents($subdistricts);
-        DB::unprepared($sql);
+          $data[$pidx] = $value->groupBy('regency');
+          foreach ($data[$pidx] as $cidx => $value) {
+            $city = Cities::create([
+              'name' => $cidx,
+              'country_id' => $country->id,
+              'province_id' => $province->id
+            ]);
 
-        $postalcode = base_path('database/seeders/postalcode.sql');
-        $sql = file_get_contents($postalcode);
-        DB::unprepared($sql);
+            $data[$pidx][$cidx] = $value->groupBy('district');
+            foreach ($data[$pidx][$cidx] as $didx => $value) {
+              $district = Districts::create([
+                'name' => $didx,
+                'country_id' => $country->id,
+                'province_id' => $province->id,
+                'city_id' => $city->id,
+              ]);
+
+              $data[$pidx][$cidx][$didx] = $value->groupBy('village');
+
+              foreach ($data[$pidx][$cidx][$didx] as $vidx => $vilages) {
+                foreach ($vilages as $idx => $vile) {
+                  $subdistrict = Subdistricts::create([
+                    'name' => $vidx,
+                    'country_id' => $country->id,
+                    'province_id' => $province->id,
+                    'city_id' => $city->id,
+                    'district_id' => $district->id,
+                    'latitude' => $vile['latitude'],
+                    'longitude' => $vile['longitude']
+                  ]);
+                }
+              }
+            }
+          }
+        }
     }
 }
