@@ -29,11 +29,15 @@ class Districts extends Resources {
         // Fields table provinces
         'id',
         'name',
+        'country_id',
+        'province_id',
         'city_id',
     ];
 
     protected $rules = array(
         "name" => 'required|string',
+        "country_id" => 'required|string',
+        "province_id" => 'required|string',
         "city_id" => 'required|string',
     );
 
@@ -56,11 +60,19 @@ class Districts extends Resources {
     protected $forms = array();
     protected $structures = array();
 
-    protected $searchable = array('name', 'city_id');
-    protected $fillable = array('name', 'city_id');
+    protected $searchable = array('name', 'city_id', 'country_id', 'province_id');
+    protected $fillable = array('name', 'city_id', 'country_id', 'province_id');
     protected $casts = [
         'city' => 'array',
     ];
+
+    public function country() {
+        return $this->belongsTo('SaltCountries\Models\Countries', 'country_id', 'id')->withTrashed();
+    }
+
+    public function province() {
+        return $this->belongsTo('SaltCountries\Models\Provinces', 'province_id', 'id')->withTrashed();
+    }
 
     public function city() {
         return $this->belongsTo('SaltCountries\Models\Cities', 'city_id', 'id')->withTrashed();

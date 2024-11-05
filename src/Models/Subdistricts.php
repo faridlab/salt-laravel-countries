@@ -30,11 +30,21 @@ class Subdistricts extends Resources {
         'id',
         'name',
         'district_id',
+        'country_id',
+        'province_id',
+        'city_id',
+        'latitude',
+        'longitude'
     ];
 
     protected $rules = array(
         "name" => 'required|string',
+        "country_id" => 'required|string',
+        "province_id" => 'required|string',
+        "city_id" => 'required|string',
         "district_id" => 'required|string',
+        "latitude" => 'nullable|numeric',
+        "longitude" => 'nullable|numeric',
     );
 
     protected $auths = array (
@@ -56,11 +66,23 @@ class Subdistricts extends Resources {
     protected $forms = array();
     protected $structures = array();
 
-    protected $searchable = array('name', 'district_id');
-    protected $fillable = array('name', 'district_id');
+    protected $searchable = array('name', 'district_id', 'country_id', 'province_id', 'city_id', 'latitude', 'longitude');
+    protected $fillable = array('name', 'district_id', 'country_id', 'province_id', 'city_id', 'latitude', 'longitude');
     protected $casts = [
         'district' => 'array',
     ];
+
+    public function country() {
+        return $this->belongsTo('SaltCountries\Models\Countries', 'country_id', 'id')->withTrashed();
+    }
+
+    public function province() {
+        return $this->belongsTo('SaltCountries\Models\Provinces', 'province_id', 'id')->withTrashed();
+    }
+
+    public function city() {
+        return $this->belongsTo('SaltCountries\Models\Cities', 'city_id', 'id')->withTrashed();
+    }
 
     public function district() {
         return $this->belongsTo('SaltCountries\Models\Districts', 'district_id', 'id')->withTrashed();
