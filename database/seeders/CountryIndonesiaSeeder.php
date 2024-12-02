@@ -36,6 +36,8 @@ class CountryIndonesiaSeeder extends Seeder
         $collection = collect($postalcode);
         $data = $collection->groupBy('province');
 
+        $subdistricts = [];
+
         foreach ($data as $pidx => $value) {
           $province = Provinces::create([
             'name' => $pidx,
@@ -63,19 +65,34 @@ class CountryIndonesiaSeeder extends Seeder
 
               foreach ($data[$pidx][$cidx][$didx] as $vidx => $vilages) {
                 foreach ($vilages as $idx => $vile) {
-                  $subdistrict = Subdistricts::create([
+                  $subdistricts[] = [
+                    'id' => Str::uuid()->toString(),
                     'name' => $vidx,
                     'country_id' => $country->id,
                     'province_id' => $province->id,
                     'city_id' => $city->id,
                     'district_id' => $district->id,
                     'latitude' => $vile['latitude'],
-                    'longitude' => $vile['longitude']
-                  ]);
+                    'longitude' => $vile['longitude'],
+                    'created_at' => date("Y-m-d H:i:s", time()),
+                    'updated_at' => date("Y-m-d H:i:s", time()),
+                  ];
                 }
               }
             }
           }
+        }
+
+        $collections = collect($subdistricts)->chunk(2500, function($inspectors) {
+          return $inspectors;
+        });
+
+        foreach ($collections as $key => $collection) {
+          print('inserting total data = ');
+          print($collection->count());
+          print('\n');
+          Subdistricts::insert($collection->toArray());
+          sleep(1);
         }
     }
 }
